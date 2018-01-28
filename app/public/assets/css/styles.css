@@ -1,0 +1,21 @@
+/* some simple app styling*/
+
+.container {
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#survey-header {
+    margin-top: 25px;
+}
+
+form {
+    font-weight: bold
+}
+
+.footer {
+    margin: 50px;
+}
