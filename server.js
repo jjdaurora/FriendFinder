@@ -1,20 +1,18 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-var apiRoutes = require("/app/routing/apiRoutes")(app);
-var apiRoutes = require("/app/routing/htmlRoutes")(app);
+
 
 var app = express();
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+
+app.use(express.static("."));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-function (newFriend) { 
-
-}
-
-
-app.listen(port, function() {
+app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });

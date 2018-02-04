@@ -8,16 +8,28 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
-    <script src="assets/js/basic.js"></script>
 </head>
 <body>
+
     <div class="container">
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <br/>
+                    <h3>We found your friend...</h3>
+                    <div id="modal-name"></div>
+                    <div id="modal-email"></div>
+                    <div id="modal-difference"></div>
+                </div>
+            </div>
+        </div>
+
         <h1 id="survey-header">Survey</h1>
         <p class"lead">Answer the survey, then find your friends. It's that simple!</p>
         <div class="col-md-6 offset-md-3">
@@ -28,11 +40,11 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Email Address</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="email" class="form-control" id="email-field" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-3">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -42,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">Generally speaking, you rely more on your experience than your imagination.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-4">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -52,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">You find it easy to stay relaxed and focused even when there is some pressure.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-5">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -62,7 +74,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">People can rarely upset you.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-6">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -72,7 +84,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">It is often difficult for you to relate to other people’s feelings.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-7">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -82,7 +94,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">You rarely do something just out of sheer curiosity.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-8">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -92,7 +104,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">In a discussion, truth should be more important than people’s sensitivities.</label>
-                    <select class="form-control" id="exampleSelect1" default="Select an option">
+                    <select class="form-control" id="question-9" default="Select an option">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -102,7 +114,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">You rarely get carried away by fantasies and ideas.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-10">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -112,7 +124,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">You think that everyone’s views should be respected regardless if they are supported by facts</label>
-                    <select class="form-control" id="exampleSelect1" placeholder="Select an option">
+                    <select class="form-control" id="question-11" placeholder="Select an option">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -123,7 +135,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelect1">You feel more energetic after spending time with a group of people.</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="question-10">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -131,13 +143,39 @@
                         <option>5</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                    <button type="button" class="btn btn-outline-primary btn-lg" id="submit-btn" data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>                
+                </form>
             <div class="footer">
-                <a href="X">API Friends | </a>
+                <a href="/api/friends">API Friends</a>
+                <span>|</span>
                 <a href="X">Github Repo</a>
             </div>
         </div>
     </div>
+<script type="text/javascript">
+
+     $("#submit-btn").on("click", function (){
+            event.preventDefault();
+            
+        var answers = [];
+        for (let index = 1; index < 11; index++) {
+            answers.push($('#question-' + index).val());
+        }
+        
+        var userData = {
+            name: $('#name-field').val().trim(),
+            email: $('#email-field').val().trim(),
+            scores: answers
+        };
+
+        $.post("/api/new", userData, function(data) {
+                // $("#modal-name").html(data.name);
+                // $("#modal-email").html(data.email);
+                // $("#modal-difference").html(data.difference);
+                // console.log(data)
+            });
+    });
+    
+</script>
 </body>
 </html>

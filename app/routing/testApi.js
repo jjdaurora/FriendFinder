@@ -1,25 +1,21 @@
-var friends = require("../data/friends");
 var path = require("path");
-var bodyParser = require("body-parser");
+var bodyParser = require('body-parser')
+var friends = require("../data/friends")
 
-module.exports = function(app) { 
 
+module.exports = function (app) { 
     app.get("/api/friends", function(req, res) {
-      res.json(friends);
+        res.json(friends);
     });
 
-    app.post("/api/new", function(req, res){
-        
-      var newBestFriend = { 
-          name: "",
-          email: "", 
-          difference: 5000 
-        };
-
+    var newBestFriend = {
+        name: "",
+        email: "",
+        difference: 1000
+    }
+    app.post("/api/friends", function(req, res){
         var userData = req.body;
-
         function compareFriends (userData) {
-
         for (var index = 0; index < friends.length; index++) {
             var totalDiff = 0;
             for (var j = 0; j < friends[index].scores[j]; j++) {
@@ -31,12 +27,11 @@ module.exports = function(app) {
                     };
                 };
             };
-                friends.push(userData);
-                res.JSON(newBestFriend);
         };
-    
-        compareFriends(userData);
 
-    });
-
+        friends.push(userData);
+        res.JSON(newBestFriend);
+    };
 };
+            
+compareFriends(newFriend);
