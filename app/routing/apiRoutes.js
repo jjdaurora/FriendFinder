@@ -18,6 +18,7 @@ module.exports = function(app) {
         
 
         var userData = req.body;
+        console.log(userData);
 
         for (var index = 0; index < friends.length; index++) {
             var totalDiff = 0;
