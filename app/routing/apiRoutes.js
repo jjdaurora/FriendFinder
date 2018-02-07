@@ -15,10 +15,9 @@ module.exports = function(app) {
           email: "", 
           difference: 5000 
         };
+        
 
         var userData = req.body;
-
-        function compareFriends (userData) {
 
         for (var index = 0; index < friends.length; index++) {
             var totalDiff = 0;
@@ -29,14 +28,13 @@ module.exports = function(app) {
                     newBestFriend.email = friends[index].email;
                     newBestFriend.difference = totalDiff;
                     };
+
                 };
+                
             };
+                console.log(newBestFriend);
                 friends.push(userData);
-                res.JSON(newBestFriend);
-        };
-    
-        compareFriends(userData);
-
-    });
-
+                res.json(newBestFriend);
+                
+        }); 
 };
